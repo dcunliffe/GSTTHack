@@ -16,7 +16,7 @@ namespace Gstt.Hack.Function.Document
     public static class Function1
     {
         [FunctionName("Document")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequest req, TraceWriter log)
+        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequest req, TraceWriter log)
         {
             switch(req.Method.ToLower())
             {
@@ -38,7 +38,8 @@ namespace Gstt.Hack.Function.Document
                         var docs = new List<DocumentDto>()
                         {
                             new DocumentDto( ) { Id = "1"},
-                            new DocumentDto() { Id = "2"}
+                            new DocumentDto() { Id = "2"},
+                            new DocumentDto() { Id = "3"}
                         };
                         return new OkObjectResult(docs);
                     }
