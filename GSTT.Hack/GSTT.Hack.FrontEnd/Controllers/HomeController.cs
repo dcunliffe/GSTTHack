@@ -15,7 +15,7 @@ namespace GSTT.Hack.FrontEnd.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your applicationkk description page.";
+            ViewBag.Message = "Your application description page.";
 
             return View();
         }
