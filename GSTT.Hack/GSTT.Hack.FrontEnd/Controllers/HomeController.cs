@@ -22,7 +22,7 @@ namespace GSTT.Hack.FrontEnd.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Your contact page POW POW POW.";
 
             return View();
         }
