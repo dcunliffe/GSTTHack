@@ -40,8 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\CategoryDto.cs" />
     <Compile Include="Dto\DocumentDto.cs" />
     <Compile Include="Dto\DocumentMetaDataDto.cs" />
+    <Compile Include="Dto\RegisterDto.cs" />
+    <Compile Include="Dto\SubscriptionDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
