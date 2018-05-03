@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSTT.Hack.FrontEnd", "GSTT.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSTT.Hack.Models", "GSTT.Hack.Models\GSTT.Hack.Models.csproj", "{0E9C1EFB-1EF2-41C6-8EA2-97C5DC42608D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSTT.Hack.Management.Web", "GSTT.Hack.Management.Web\GSTT.Hack.Management.Web.csproj", "{6005683F-F560-4EC7-B4D9-AB497E1B00D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gstt.Hack.Api.DocumentMetaData", "Gstt.Hack.Api.DocumentMetaData\Gstt.Hack.Api.DocumentMetaData.csproj", "{674EFD94-EBDF-46C9-89AB-9EB889F33526}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{0E9C1EFB-1EF2-41C6-8EA2-97C5DC42608D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E9C1EFB-1EF2-41C6-8EA2-97C5DC42608D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E9C1EFB-1EF2-41C6-8EA2-97C5DC42608D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6005683F-F560-4EC7-B4D9-AB497E1B00D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6005683F-F560-4EC7-B4D9-AB497E1B00D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6005683F-F560-4EC7-B4D9-AB497E1B00D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6005683F-F560-4EC7-B4D9-AB497E1B00D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{674EFD94-EBDF-46C9-89AB-9EB889F33526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{674EFD94-EBDF-46C9-89AB-9EB889F33526}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{674EFD94-EBDF-46C9-89AB-9EB889F33526}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{674EFD94-EBDF-46C9-89AB-9EB889F33526}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
