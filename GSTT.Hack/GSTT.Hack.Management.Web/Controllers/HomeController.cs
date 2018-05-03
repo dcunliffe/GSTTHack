@@ -4,8 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace GSTT.Hack.FrontEnd.Controllers
+namespace GSTT.Hack.Management.Web.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -22,7 +23,7 @@ namespace GSTT.Hack.FrontEnd.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page POW POW POW.";
+            ViewBag.Message = "Your contact page.";
 
             return View();
         }
