@@ -11,8 +11,7 @@ namespace GSTT.Hack.Web.FrontEnd.Controllers
         // GET: View
         public ActionResult Index(int id)
         {
-
-            return View();
+            return View(id);
         }
     }
 }

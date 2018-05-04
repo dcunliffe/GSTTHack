@@ -1,8 +1,56 @@
-﻿
+﻿@model int
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>View document details</h2>
+<h2>Document Details</h2>
 
+<table class="table table-striped">
+    <tbody data-bind="with: documentDetails">
+        <tr>
+            <td>Id</td>
+            <td data-bind="text: Id"></td>
+        </tr>
+        <tr>
+            <td>Title</td>
+            <td data-bind="text: Title"></td>
+        </tr>
+        <tr>
+            <td>Category</td>
+            <td data-bind="text: Category"></td>
+        </tr>
+        <tr>
+            <td>Comment</td>
+            <td data-bind="text: Comment"></td>
+        </tr>
+        <tr>
+            <td>Score</td>
+            <td data-bind="text: Score"></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="alert alert-info" data-bind="visible: isBusy">
+    Querying for document <span data-bind="text: documentId"></span>...
+</div>
+
+<div class="card">
+    <a class="btn btn-dark" href="/List">Go back to List</a>
+</div>
+
+<script src="~/Scripts/knockout-3.4.2.js"></script>
+
+<script src="~/Scripts/ViewModels/DocumentViewerViewModel.js"></script>
+<script src="~/Scripts/Models/DocumentModel.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        var url = "@GSTT.Hack.Web.FrontEnd.Models.AppSettingsModel.UrlMetaData";
+
+        var viewModel = new DocumentViewerViewModel(@Model, url);
+        ko.applyBindings(viewModel);
+
+    })
+</script>
