@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSTT.Hack.Web.FrontEnd", "G
 EndProject
 Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "GSTT.Hack.LogicApps", "GSTT.Hack.LogicApps\GSTT.Hack.LogicApps.deployproj", "{F5840083-CBD3-4D45-829F-7D1DCF4A1D6E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GSTT.Hack.Function.DocumentNotification", "GSTT.Hack.Function.DocumentNotification\GSTT.Hack.Function.DocumentNotification.csproj", "{F4BA6F10-61D8-4190-B9BF-A621EDB1085F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSTT.Hack.Tests", "GSTT.Hack.Tests\GSTT.Hack.Tests.csproj", "{78FE2A3F-BCA3-447F-A078-DED33D252AE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{F5840083-CBD3-4D45-829F-7D1DCF4A1D6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5840083-CBD3-4D45-829F-7D1DCF4A1D6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5840083-CBD3-4D45-829F-7D1DCF4A1D6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4BA6F10-61D8-4190-B9BF-A621EDB1085F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4BA6F10-61D8-4190-B9BF-A621EDB1085F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4BA6F10-61D8-4190-B9BF-A621EDB1085F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4BA6F10-61D8-4190-B9BF-A621EDB1085F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78FE2A3F-BCA3-447F-A078-DED33D252AE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78FE2A3F-BCA3-447F-A078-DED33D252AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78FE2A3F-BCA3-447F-A078-DED33D252AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78FE2A3F-BCA3-447F-A078-DED33D252AE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
