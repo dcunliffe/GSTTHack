@@ -47,7 +47,9 @@
 <script>
     $(document).ready(function () {
 
-        var viewModel = new DocumentViewerViewModel(@Model);
+        var url = "@GSTT.Hack.Web.FrontEnd.Models.AppSettingsModel.UrlMetaData";
+
+        var viewModel = new DocumentViewerViewModel(@Model, url);
         ko.applyBindings(viewModel);
 
     })

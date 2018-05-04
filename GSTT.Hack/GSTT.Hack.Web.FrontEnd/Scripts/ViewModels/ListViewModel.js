@@ -1,4 +1,4 @@
-﻿var ListViewModel = function () {
+﻿var ListViewModel = function (url) {
     var self = this;
 
     self.documentList = ko.observableArray();
@@ -7,7 +7,7 @@
 
     self.getList = function () {
         self.isBusy(true);
-        $.get('http://localhost:50418/api/document')
+        $.get(url + '/document')
             .then(function (d) {
                 var list = $.map(d, function (value) {
                     return new DocumentModel(value);

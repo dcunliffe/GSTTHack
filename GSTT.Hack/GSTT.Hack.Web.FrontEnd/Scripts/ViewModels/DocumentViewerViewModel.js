@@ -1,4 +1,4 @@
-﻿var DocumentViewerViewModel = function (documentId) {
+﻿var DocumentViewerViewModel = function (documentId, URL) {
     var self = this;
 
     self.documentId = ko.observable(documentId);
@@ -9,7 +9,7 @@
 
     self.getList = function () {
         self.isBusy(true);
-        $.get('http://localhost:50418/api/document/' + self.documentId())
+        $.get(URL + '/document/' + self.documentId())
             .then(function (d) {
                 self.documentDetails(new DocumentModel(d));
                 self.isBusy(false);
