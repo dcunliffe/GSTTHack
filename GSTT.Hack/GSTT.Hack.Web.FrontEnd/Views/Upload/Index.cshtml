@@ -6,3 +6,21 @@
 
 <h2>Index</h2>
 
+@using (Html.BeginForm("Index", "Upload", FormMethod.Post, new { enctype = "multipart/form-data"  })) {
+
+    <table class="table table-borderless">
+        <tr>
+            <td> File:</td>
+            <td><input type="file" name="file" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Upload" /></td>
+        </tr>
+
+    </table>
+
+     
+
+
+}
