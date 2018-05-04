@@ -7,7 +7,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OpenIdConnect;
 using Microsoft.Owin.Security;
 
-namespace Contoso.Events.Management.Controllers
+namespace GSTT.Hack.Management.FrontEnd.Controllers
 {
     public class AccountController : Controller
     {

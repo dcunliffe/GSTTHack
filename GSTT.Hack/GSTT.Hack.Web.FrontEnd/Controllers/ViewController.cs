@@ -6,12 +6,12 @@ using System.Web.Mvc;
 
 namespace GSTT.Hack.Web.FrontEnd.Controllers
 {
-    [Authorize]
     public class ViewController : Controller
     {
         // GET: View
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
+
             return View();
         }
     }

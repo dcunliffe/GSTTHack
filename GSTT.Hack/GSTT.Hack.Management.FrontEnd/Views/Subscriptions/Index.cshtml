@@ -6,27 +6,20 @@
 
 <h2>Index</h2>
 
+
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Register Now", "Create", new { }, new { @class = "btn btn-primary btn-lg center-block" })
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.EmailAddress)
-        </th>
-        <th></th>
+        <th>@Html.DisplayNameFor(model => model.EmailAddress)</th>
+        <th>Categorys</th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmailAddress)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
+        <td>@Html.DisplayFor(modelItem => item.EmailAddress)</td>
+        <td>Category 1, Category 2</td>
     </tr>
 }
 

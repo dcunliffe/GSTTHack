@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSTT.Hack.Management.FrontE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSTT.Hack.Web.FrontEnd", "GSTT.Hack.Web.FrontEnd\GSTT.Hack.Web.FrontEnd.csproj", "{A0224D23-F847-4431-A245-C6D2279A74B5}"
 EndProject
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "GSTT.Hack.LogicApps", "GSTT.Hack.LogicApps\GSTT.Hack.LogicApps.deployproj", "{F5840083-CBD3-4D45-829F-7D1DCF4A1D6E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A0224D23-F847-4431-A245-C6D2279A74B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0224D23-F847-4431-A245-C6D2279A74B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0224D23-F847-4431-A245-C6D2279A74B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5840083-CBD3-4D45-829F-7D1DCF4A1D6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5840083-CBD3-4D45-829F-7D1DCF4A1D6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5840083-CBD3-4D45-829F-7D1DCF4A1D6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5840083-CBD3-4D45-829F-7D1DCF4A1D6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
