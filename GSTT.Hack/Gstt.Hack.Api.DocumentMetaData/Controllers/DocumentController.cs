@@ -13,7 +13,17 @@ namespace Gstt.Hack.Api.DocumentMetaData.Controllers
         // GET api/values
         public IEnumerable<DocumentMetaDataDto> Get()
         {
-            return new List<DocumentMetaDataDto>();
+            return new List<DocumentMetaDataDto>
+            {
+                new DocumentMetaDataDto
+                {
+                    Id = 111,
+                    Category = "catgory 1",
+                    Comment = "this is a comment for 1",
+                    IsSecure = true,
+                    Score = 11
+                }
+            };
         }
 
         // GET api/values/5
