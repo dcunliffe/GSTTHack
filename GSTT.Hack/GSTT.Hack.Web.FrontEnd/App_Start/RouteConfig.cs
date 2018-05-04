@@ -16,7 +16,7 @@ namespace GSTT.Hack.Web.FrontEnd
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Upload", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "List", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

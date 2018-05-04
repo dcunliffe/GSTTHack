@@ -9,5 +9,7 @@ namespace GSTT.Hack.Models.Dto
     public class DocumentDto
     {
         public string Id { get; set; }
+
+        public string FileName { get; set; }
     }
 }

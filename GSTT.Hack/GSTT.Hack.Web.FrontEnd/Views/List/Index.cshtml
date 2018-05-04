@@ -1,20 +1,39 @@
-﻿@model List<GSTT.Hack.Models.Dto.DocumentMetaDataDto>
+﻿
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>List of Documents</h2>
-<table>
-    @foreach (GSTT.Hack.Models.Dto.DocumentMetaDataDto d in Model)
-    {
-    <tr>
-        <td>@d.Id</td>
-        <td>>@d.Score</td>
-        <td>@d.Category</td>
-        <td>@d.Comment</td>
-        <td>@d.IsSecure</td>
-    </tr>
-
-    }
+<table class="table table-striped">
+  <tbody data-bind="foreach: documentList">
+      <tr>
+          <td data-bind="text: Id"></td>
+          <td data-bind="text: Title"></td>
+          <td data-bind="text: Category"></td>
+          <td data-bind="text: Comment"></td>
+          <td data-bind="text: Score"></td>
+          <td>
+              <a class="btn btn-info" data-bind="attr: { href: '/View/Index/' + Id}">View Document</a>
+          </td>
+      </tr>
+  </tbody>
 </table>
+
+<div class="alert alert-info" data-bind="visible: !documentList()">
+    No documents available
+</div>
+
+
+<script src="~/Scripts/knockout-3.4.2.js"></script>
+
+<script src="~/Scripts/ViewModels/ListViewModel.js"></script>
+<script src="~/Scripts/Models/DocumentModel.js"></script>
+<script>
+    $(document).ready(function () {
+
+        var viewModel = new ListViewModel();
+        ko.applyBindings(viewModel);
+
+    }) 
+</script>
