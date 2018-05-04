@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSTT.Hack.FrontEnd", "GSTT.Hack.FrontEnd\GSTT.Hack.FrontEnd.csproj", "{E90EA7C3-D037-4E5A-9DFA-FF684AFE35A4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSTT.Hack.Models", "GSTT.Hack.Models\GSTT.Hack.Models.csproj", "{0E9C1EFB-1EF2-41C6-8EA2-97C5DC42608D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gstt.Hack.Api.DocumentMetaData", "Gstt.Hack.Api.DocumentMetaData\Gstt.Hack.Api.DocumentMetaData.csproj", "{674EFD94-EBDF-46C9-89AB-9EB889F33526}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSTT.Hack.FrontEnd.Web", "GSTT.Hack.FrontEnd.Web\GSTT.Hack.FrontEnd.Web.csproj", "{5D4CFF32-FF14-46FB-B4DC-57194E3395DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gstt.Hack.Function.Document", "Gstt.Hack.Function.Document\Gstt.Hack.Function.Document.csproj", "{84357F02-79C4-43B4-8127-CF89A190F3DF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gstt.Hack.Function.Document", "Gstt.Hack.Function.Document\Gstt.Hack.Function.Document.csproj", "{84357F02-79C4-43B4-8127-CF89A190F3DF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSTT.Hack.Management.FrontEnd", "GSTT.Hack.Management.FrontEnd\GSTT.Hack.Management.FrontEnd.csproj", "{89A71E1A-CB3C-4168-AC99-5B6370F30FE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSTT.Hack.Web.FrontEnd", "GSTT.Hack.Web.FrontEnd\GSTT.Hack.Web.FrontEnd.csproj", "{A0224D23-F847-4431-A245-C6D2279A74B5}"
 EndProject
 Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "GSTT.Hack.LogicApps", "GSTT.Hack.LogicApps\GSTT.Hack.LogicApps.deployproj", "{F5840083-CBD3-4D45-829F-7D1DCF4A1D6E}"
 EndProject
@@ -23,14 +23,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E90EA7C3-D037-4E5A-9DFA-FF684AFE35A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E90EA7C3-D037-4E5A-9DFA-FF684AFE35A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E90EA7C3-D037-4E5A-9DFA-FF684AFE35A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E90EA7C3-D037-4E5A-9DFA-FF684AFE35A4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0E9C1EFB-1EF2-41C6-8EA2-97C5DC42608D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0E9C1EFB-1EF2-41C6-8EA2-97C5DC42608D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E9C1EFB-1EF2-41C6-8EA2-97C5DC42608D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E9C1EFB-1EF2-41C6-8EA2-97C5DC42608D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{674EFD94-EBDF-46C9-89AB-9EB889F33526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{674EFD94-EBDF-46C9-89AB-9EB889F33526}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{674EFD94-EBDF-46C9-89AB-9EB889F33526}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{674EFD94-EBDF-46C9-89AB-9EB889F33526}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84357F02-79C4-43B4-8127-CF89A190F3DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84357F02-79C4-43B4-8127-CF89A190F3DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84357F02-79C4-43B4-8127-CF89A190F3DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84357F02-79C4-43B4-8127-CF89A190F3DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89A71E1A-CB3C-4168-AC99-5B6370F30FE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89A71E1A-CB3C-4168-AC99-5B6370F30FE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89A71E1A-CB3C-4168-AC99-5B6370F30FE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89A71E1A-CB3C-4168-AC99-5B6370F30FE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0224D23-F847-4431-A245-C6D2279A74B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0224D23-F847-4431-A245-C6D2279A74B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0224D23-F847-4431-A245-C6D2279A74B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0224D23-F847-4431-A245-C6D2279A74B5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{674EFD94-EBDF-46C9-89AB-9EB889F33526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{674EFD94-EBDF-46C9-89AB-9EB889F33526}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{674EFD94-EBDF-46C9-89AB-9EB889F33526}.Release|Any CPU.ActiveCfg = Release|Any CPU
