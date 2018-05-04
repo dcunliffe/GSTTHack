@@ -62,7 +62,7 @@
         "definition": {
           "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
           "actions": {
-            "Condition": {
+            "Check_if_content_includes_an_Id_value": {
               "type": "If",
               "expression": {
                 "and": [
@@ -77,7 +77,7 @@
                 ]
               },
               "actions": {
-                "Send_an_email": {
+                "Send_success_e-mail": {
                   "type": "ApiConnection",
                   "inputs": {
                     "host": {
@@ -95,7 +95,7 @@
                   },
                   "runAfter": {}
                 },
-                "Send_message": {
+                "Send_to_Notification_Subscribers": {
                   "type": "ApiConnection",
                   "inputs": {
                     "host": {
@@ -116,7 +116,33 @@
                     }
                   },
                   "runAfter": {
-                    "Send_an_email": [
+                    "Send_to_Notification_Queue": [
+                      "Succeeded"
+                    ]
+                  }
+                },
+                "Send_to_Notification_Queue": {
+                  "type": "ApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connection": {
+                        "name": "@parameters('$connections')['servicebus_1']['connectionId']"
+                      }
+                    },
+                    "method": "post",
+                    "body": {
+                      "SessionId": "@triggerBody()?['SessionId']",
+                      "ContentData": "@{triggerBody()?['ContentData']}",
+                      "ContentType": "@base64ToString(triggerBody()?['ContentData'])",
+                      "Properties": "@triggerBody()?['Properties']"
+                    },
+                    "path": "/@{encodeURIComponent(encodeURIComponent('notificationqueue'))}/messages",
+                    "queries": {
+                      "systemProperties": "None"
+                    }
+                  },
+                  "runAfter": {
+                    "Send_success_e-mail": [
                       "Succeeded"
                     ]
                   }
@@ -125,7 +151,7 @@
               "runAfter": {},
               "else": {
                 "actions": {
-                  "Send_an_email_2": {
+                  "Send_failure_e-mail": {
                     "type": "ApiConnection",
                     "inputs": {
                       "host": {
