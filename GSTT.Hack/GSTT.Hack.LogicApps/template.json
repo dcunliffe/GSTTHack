@@ -146,6 +146,20 @@
                       "Succeeded"
                     ]
                   }
+                },
+                "Process": {
+                  "type": "Function",
+                  "inputs": {
+                    "body": "@base64ToString(triggerBody()?['ContentData'])",
+                    "function": {
+                      "id": "/subscriptions/ff227aef-bc76-42c9-8f51-87582b1e7732/resourceGroups/GSTT-Hack/providers/Microsoft.Web/sites/gstthackdocumentnotification/functions/Process"
+                    }
+                  },
+                  "runAfter": {
+                    "Send_to_Notification_Subscribers": [
+                      "Succeeded"
+                    ]
+                  }
                 }
               },
               "runAfter": {},
