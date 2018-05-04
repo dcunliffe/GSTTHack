@@ -287,3 +287,6 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 /GSTT.Hack/GSTT.Hack.WebJob
+/GSTT.Hack/GSTT.Hack.LogicApps/DeploymentHelper.cs
+/GSTT.Hack/GSTT.Hack.LogicApps/deployer.rb
+/GSTT.Hack/GSTT.Hack.LogicApps/deploy.sh

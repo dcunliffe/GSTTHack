@@ -1,0 +1,235 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "connections_outlook_name": {
+      "defaultValue": "outlook",
+      "type": "String"
+    },
+    "connections_servicebus_name": {
+      "defaultValue": "servicebus",
+      "type": "String"
+    },
+    "workflows_gstt_hack_document_arrival_la_name": {
+      "defaultValue": "gstt-hack-document-arrival-la",
+      "type": "String"
+    },
+    "LogicAppLocation": {
+      "type": "string",
+      "minLength": 1,
+      "allowedValues": [
+        "[resourceGroup().location]",
+        "eastasia",
+        "southeastasia",
+        "centralus",
+        "eastus",
+        "eastus2",
+        "westus",
+        "northcentralus",
+        "southcentralus",
+        "northeurope",
+        "westeurope",
+        "japanwest",
+        "japaneast",
+        "brazilsouth",
+        "australiaeast",
+        "australiasoutheast",
+        "southindia",
+        "centralindia",
+        "westindia",
+        "canadacentral",
+        "canadaeast",
+        "uksouth",
+        "ukwest",
+        "westcentralus",
+        "westus2"
+      ],
+      "defaultValue": "westeurope"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "comments": "Generalized from resource: '/subscriptions/ff227aef-bc76-42c9-8f51-87582b1e7732/resourceGroups/GSTT-Hack-LogicApp/providers/Microsoft.Logic/workflows/gstt-hack-document-arrival-la'.",
+      "type": "Microsoft.Logic/workflows",
+      "name": "[parameters('workflows_gstt_hack_document_arrival_la_name')]",
+      "apiVersion": "2017-07-01",
+      "location": "[parameters('LogicAppLocation')]",
+      "tags": {},
+      "scale": null,
+      "properties": {
+        "state": "Enabled",
+        "definition": {
+          "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "actions": {
+            "Condition": {
+              "type": "If",
+              "expression": {
+                "and": [
+                  {
+                    "not": {
+                      "equals": [
+                        "@json(base64ToString(triggerBody()?['ContentData']))['Id']",
+                        null
+                      ]
+                    }
+                  }
+                ]
+              },
+              "actions": {
+                "Send_an_email": {
+                  "type": "ApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connection": {
+                        "name": "@parameters('$connections')['outlook_1']['connectionId']"
+                      }
+                    },
+                    "method": "post",
+                    "body": {
+                      "To": "mattrdudley-training@outlook.com; cdutoitgstt@outlook.com; d_cunliffe_training@hotmail.com",
+                      "Subject": "GSTT-Hack | New Document Created",
+                      "Body": "A new document has been created.\n\nDetails:\nId:@{json(base64ToString(triggerBody()?['ContentData']))['Id']}\nFilename: @{json(base64ToString(triggerBody()?['ContentData']))['FileName']} \n\nEOM"
+                    },
+                    "path": "/Mail"
+                  },
+                  "runAfter": {}
+                },
+                "Send_message": {
+                  "type": "ApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connection": {
+                        "name": "@parameters('$connections')['servicebus_1']['connectionId']"
+                      }
+                    },
+                    "method": "post",
+                    "body": {
+                      "SessionId": "@triggerBody()?['SessionId']",
+                      "ContentData": "@{triggerBody()?['ContentData']}",
+                      "ContentType": "@triggerBody()?['ContentType']",
+                      "Properties": "@triggerBody()?['Properties']"
+                    },
+                    "path": "/@{encodeURIComponent(encodeURIComponent('notificationtopic'))}/messages",
+                    "queries": {
+                      "systemProperties": "None"
+                    }
+                  },
+                  "runAfter": {
+                    "Send_an_email": [
+                      "Succeeded"
+                    ]
+                  }
+                }
+              },
+              "runAfter": {},
+              "else": {
+                "actions": {
+                  "Send_an_email_2": {
+                    "type": "ApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connection": {
+                          "name": "@parameters('$connections')['outlook_1']['connectionId']"
+                        }
+                      },
+                      "method": "post",
+                      "body": {
+                        "To": "mattrdudley-training@outlook.com; d_cunliffe_training@hotmail.com",
+                        "Subject": "GSTT Hack | New Document Created - but failed conditions",
+                        "Body": "A new document was created, but did not have a valid identifier!\n\nContent:@{base64ToString(triggerBody()?['ContentData'])} "
+                      },
+                      "path": "/Mail"
+                    },
+                    "runAfter": {}
+                  }
+                }
+              }
+            }
+          },
+          "parameters": {
+            "$connections": {
+              "defaultValue": {},
+              "type": "Object"
+            }
+          },
+          "triggers": {
+            "When_a_message_is_received_in_a_queue_(auto-complete)": {
+              "type": "ApiConnection",
+              "inputs": {
+                "host": {
+                  "connection": {
+                    "name": "@parameters('$connections')['servicebus_1']['connectionId']"
+                  }
+                },
+                "method": "get",
+                "path": "/@{encodeURIComponent(encodeURIComponent('documentqueue'))}/messages/head",
+                "queries": {
+                  "queueType": "Main"
+                }
+              },
+              "recurrence": {
+                "frequency": "Second",
+                "interval": 15
+              }
+            }
+          },
+          "contentVersion": "1.0.0.0",
+          "outputs": {}
+        },
+        "parameters": {
+          "$connections": {
+            "value": {
+              "outlook_1": {
+                "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', parameters('LogicAppLocation'), '/managedApis/', 'outlook')]",
+                "connectionId": "[resourceId('Microsoft.Web/connections', parameters('connections_outlook_name'))]",
+                "connectionName": "[parameters('connections_outlook_name')]"
+              },
+              "servicebus_1": {
+                "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', parameters('LogicAppLocation'), '/managedApis/', 'servicebus')]",
+                "connectionId": "[resourceId('Microsoft.Web/connections', parameters('connections_servicebus_name'))]",
+                "connectionName": "[parameters('connections_servicebus_name')]"
+              }
+            }
+          }
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/connections', parameters('connections_outlook_name'))]",
+        "[resourceId('Microsoft.Web/connections', parameters('connections_servicebus_name'))]"
+      ]
+    },
+    {
+      "comments": "Generalized from resource: '/subscriptions/ff227aef-bc76-42c9-8f51-87582b1e7732/resourceGroups/GSTT-Hack-LogicApp/providers/Microsoft.Web/connections/outlook'.",
+      "type": "Microsoft.Web/connections",
+      "name": "[parameters('connections_outlook_name')]",
+      "apiVersion": "2016-06-01",
+      "location": "westeurope",
+      "scale": null,
+      "properties": {
+        "displayName": "[concat('mattrdudley-training@', parameters('connections_outlook_name'),'.com')]",
+        "customParameterValues": {},
+        "api": {
+          "id": "[concat('/subscriptions/ff227aef-bc76-42c9-8f51-87582b1e7732/providers/Microsoft.Web/locations/westeurope/managedApis/', parameters('connections_outlook_name'))]"
+        }
+      },
+      "dependsOn": []
+    },
+    {
+      "comments": "Generalized from resource: '/subscriptions/ff227aef-bc76-42c9-8f51-87582b1e7732/resourceGroups/GSTT-Hack-LogicApp/providers/Microsoft.Web/connections/servicebus'.",
+      "type": "Microsoft.Web/connections",
+      "name": "[parameters('connections_servicebus_name')]",
+      "apiVersion": "2016-06-01",
+      "location": "westeurope",
+      "scale": null,
+      "properties": {
+        "displayName": "[parameters('connections_servicebus_name')]",
+        "customParameterValues": {},
+        "api": {
+          "id": "[concat('/subscriptions/ff227aef-bc76-42c9-8f51-87582b1e7732/providers/Microsoft.Web/locations/westeurope/managedApis/', parameters('connections_servicebus_name'))]"
+        }
+      },
+      "dependsOn": []
+    }
+  ]
+}
