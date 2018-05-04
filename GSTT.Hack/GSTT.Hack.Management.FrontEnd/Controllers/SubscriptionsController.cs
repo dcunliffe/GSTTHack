@@ -31,7 +31,7 @@ namespace GSTT.Hack.Management.FrontEnd.Controllers
             return View(dummyModel);
         }
 
-        [Authorize(Roles = "addSubscription")]
+        
         // GET: Subscriptions/Details/5
         public ActionResult Details(int id)
         {
@@ -39,6 +39,7 @@ namespace GSTT.Hack.Management.FrontEnd.Controllers
         }
 
         // GET: Subscriptions/Create
+        
         public ActionResult Create()
         {
             var categoryList = new List<CategoryModel>();
@@ -56,6 +57,7 @@ namespace GSTT.Hack.Management.FrontEnd.Controllers
         }
 
         // POST: Subscriptions/Create
+      
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -78,6 +80,7 @@ namespace GSTT.Hack.Management.FrontEnd.Controllers
         }
 
         // POST: Subscriptions/Edit/5
+       
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
