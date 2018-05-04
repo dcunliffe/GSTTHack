@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace GSTT.Hack.Management.FrontEnd.Controllers
 {
+    [Authorize]
     public class SubscriptionsController : Controller
     {
         // GET: Subscriptions
@@ -30,6 +31,7 @@ namespace GSTT.Hack.Management.FrontEnd.Controllers
             return View(dummyModel);
         }
 
+        [Authorize(Roles = "addSubscription")]
         // GET: Subscriptions/Details/5
         public ActionResult Details(int id)
         {
