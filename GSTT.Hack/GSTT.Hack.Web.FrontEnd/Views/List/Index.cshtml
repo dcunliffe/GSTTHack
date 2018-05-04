@@ -6,22 +6,31 @@
 
 <h2>List of Documents</h2>
 <table class="table table-striped">
-  <tbody data-bind="foreach: documentList">
-      <tr>
-          <td data-bind="text: Id"></td>
-          <td data-bind="text: Title"></td>
-          <td data-bind="text: Category"></td>
-          <td data-bind="text: Comment"></td>
-          <td data-bind="text: Score"></td>
-          <td>
-              <a class="btn btn-info" data-bind="attr: { href: '/View/Index/' + Id}">View Document</a>
-          </td>
-      </tr>
-  </tbody>
+    <tbody data-bind="foreach: documentList">
+        <tr>
+            <td data-bind="text: Id"></td>
+            <td data-bind="text: Title"></td>
+            <td data-bind="text: Category"></td>
+            <td data-bind="text: Comment"></td>
+            <td data-bind="text: Score"></td>
+            <td>
+                <a class="btn btn-info" data-bind="attr: { href: '/View/Index/' + Id}">View Document</a>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
-<div class="alert alert-info" data-bind="visible: !documentList()">
+<div class="alert alert-warning" data-bind="visible: !documentList()">
     No documents available
+</div>
+
+<div class="alert alert-info" data-bind="visible: isBusy">
+    Querying for documents...
+</div>
+
+
+<div class="card">
+    <a class="btn btn-dark" href="/Upload">Upload Document</a>
 </div>
 
 
@@ -35,5 +44,5 @@
         var viewModel = new ListViewModel();
         ko.applyBindings(viewModel);
 
-    }) 
+    })
 </script>

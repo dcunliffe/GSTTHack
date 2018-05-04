@@ -29,7 +29,14 @@ namespace Gstt.Hack.Api.DocumentMetaData.Controllers
         // GET api/values/5
         public DocumentMetaDataDto Get(int id)
         {
-            return new DocumentMetaDataDto();
+            return new DocumentMetaDataDto
+            {
+                Id = id,
+                Category = "catgory " + id,
+                Comment = "this is a comment for " + id,
+                IsSecure = true,
+                Score = id * 2
+            };
         }
 
         // POST api/values
