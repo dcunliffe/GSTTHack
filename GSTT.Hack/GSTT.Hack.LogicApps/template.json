@@ -19,7 +19,30 @@
       "minLength": 1,
       "allowedValues": [
         "[resourceGroup().location]",
-        "westeurope"
+        "eastasia",
+        "southeastasia",
+        "centralus",
+        "eastus",
+        "eastus2",
+        "westus",
+        "northcentralus",
+        "southcentralus",
+        "northeurope",
+        "westeurope",
+        "japanwest",
+        "japaneast",
+        "brazilsouth",
+        "australiaeast",
+        "australiasoutheast",
+        "southindia",
+        "centralindia",
+        "westindia",
+        "canadacentral",
+        "canadaeast",
+        "uksouth",
+        "ukwest",
+        "westcentralus",
+        "westus2"
       ],
       "defaultValue": "westeurope"
     }
@@ -44,10 +67,12 @@
               "expression": {
                 "and": [
                   {
-                    "contains": [
-                      "@base64ToString(triggerBody()?['ContentData'])",
-                      "tester"
-                    ]
+                    "not": {
+                      "equals": [
+                        "@json(base64ToString(triggerBody()?['ContentData']))['Id']",
+                        null
+                      ]
+                    }
                   }
                 ]
               },
@@ -64,7 +89,7 @@
                     "body": {
                       "To": "mattrdudley-training@outlook.com; cdutoitgstt@outlook.com; d_cunliffe_training@hotmail.com",
                       "Subject": "GSTT-Hack | New Document Created",
-                      "Body": "A new document has been created.\n\nDetails:\n\n@{base64ToString(triggerBody()?['ContentData'])}\n\nEOM"
+                      "Body": "A new document has been created.\n\nDetails:\nId:@{json(base64ToString(triggerBody()?['ContentData']))['Id']}\nFilename: @{json(base64ToString(triggerBody()?['ContentData']))['FileName']} \n\nEOM"
                     },
                     "path": "/Mail"
                   },
@@ -112,7 +137,7 @@
                       "body": {
                         "To": "mattrdudley-training@outlook.com; d_cunliffe_training@hotmail.com",
                         "Subject": "GSTT Hack | New Document Created - but failed conditions",
-                        "Body": "A new document was created, but did not meet the condition criteria.\n\nContent: @{base64ToString(triggerBody()?['ContentData'])}\nType: @{triggerBody()?['ContentType']}\n"
+                        "Body": "A new document was created, but did not have a valid identifier!\n\nContent:@{base64ToString(triggerBody()?['ContentData'])} "
                       },
                       "path": "/Mail"
                     },
@@ -156,12 +181,12 @@
           "$connections": {
             "value": {
               "outlook_1": {
-                "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westeurope', '/managedApis/', 'outlook')]",
+                "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', parameters('LogicAppLocation'), '/managedApis/', 'outlook')]",
                 "connectionId": "[resourceId('Microsoft.Web/connections', parameters('connections_outlook_name'))]",
                 "connectionName": "[parameters('connections_outlook_name')]"
               },
               "servicebus_1": {
-                "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westeurope', '/managedApis/', 'servicebus')]",
+                "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', parameters('LogicAppLocation'), '/managedApis/', 'servicebus')]",
                 "connectionId": "[resourceId('Microsoft.Web/connections', parameters('connections_servicebus_name'))]",
                 "connectionName": "[parameters('connections_servicebus_name')]"
               }
