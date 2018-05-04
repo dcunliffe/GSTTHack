@@ -19,14 +19,14 @@ namespace GSTT.Hack.Web.FrontEnd.Controllers
         [HttpPost]
         public ActionResult Index( HttpPostedFileBase file)
         {
-            var path = "F:\\TempUpload\\";
+            //var path = "F:\\TempUpload\\";
 
-            if (file != null && file.ContentLength>0)
-            {
-                if(!Directory.Exists(path)) Directory.CreateDirectory(path);
-            }
+            //if (file != null && file.ContentLength>0)
+            //{
+            //    if(!Directory.Exists(path)) Directory.CreateDirectory(path);
+            //}
 
-            file.SaveAs(path + Path.GetFileName(file.FileName));    
+            //file.SaveAs(path + Path.GetFileName(file.FileName));    
 
             return View();
         }

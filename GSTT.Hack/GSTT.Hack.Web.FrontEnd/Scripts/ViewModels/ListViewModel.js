@@ -14,8 +14,12 @@
                 });
                 self.documentList(list);
                 self.isBusy(false);
+            })
+            .fail(function (err) {
+                if (err && err.statusText)
+                    alert(err.statusText); // or whatever
             });
-    }
+    };
 
     self.getList();
 };
