@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace GSTT.Hack.Management.FrontEnd.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         public ActionResult Index()
