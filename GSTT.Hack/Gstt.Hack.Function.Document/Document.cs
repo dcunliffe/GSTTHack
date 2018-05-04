@@ -31,6 +31,7 @@ namespace Gstt.Hack.Function.Document
 
                     queue.SendAsync(new Message(message)).Wait();
 
+
                     return new CreatedResult("\\", $"Created");
                 case "get":
                     if (string.IsNullOrEmpty(req.Query["id"]))
@@ -41,6 +42,7 @@ namespace Gstt.Hack.Function.Document
                             new DocumentDto() { Id = "2"},
                             new DocumentDto() { Id = "3"}
                         };
+                        
                         return new OkObjectResult(docs);
                     }
                     else
