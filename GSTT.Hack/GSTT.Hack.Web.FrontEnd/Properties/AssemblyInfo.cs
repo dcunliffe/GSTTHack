@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GSTT.Hack.FrontEnd.Web")]
+[assembly: AssemblyTitle("GSTT.Hack.Web.FrontEnd")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GSTT.Hack.FrontEnd.Web")]
+[assembly: AssemblyProduct("GSTT.Hack.Web.FrontEnd")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a2ec2776-3585-4d73-80da-4058401a4b1f")]
+[assembly: Guid("6b290624-3229-43dd-9581-3194aa1c8f13")]
 
 // Version information for an assembly consists of the following four values:
 //

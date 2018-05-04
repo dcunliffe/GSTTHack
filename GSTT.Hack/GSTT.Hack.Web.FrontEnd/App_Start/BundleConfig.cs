@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace GSTT.Hack.FrontEnd.Web
+namespace GSTT.Hack.Web.FrontEnd
 {
     public class BundleConfig
     {

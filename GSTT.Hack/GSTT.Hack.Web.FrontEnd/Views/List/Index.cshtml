@@ -1,0 +1,20 @@
+﻿@model List<GSTT.Hack.Models.Dto.DocumentMetaDataDto>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List of Documents</h2>
+<table>
+    @foreach (GSTT.Hack.Models.Dto.DocumentMetaDataDto d in Model)
+    {
+    <tr>
+        <td>@d.Id</td>
+        <td>>@d.Score</td>
+        <td>@d.Category</td>
+        <td>@d.Comment</td>
+        <td>@d.IsSecure</td>
+    </tr>
+
+    }
+</table>

@@ -9,7 +9,7 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OpenIdConnect;
 
-namespace GSTT.Hack.FrontEnd.Web
+namespace GSTT.Hack.Web.FrontEnd
 {
     public partial class Startup
     {

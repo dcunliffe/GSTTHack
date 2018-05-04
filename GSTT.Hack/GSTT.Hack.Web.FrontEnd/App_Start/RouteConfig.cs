@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace GSTT.Hack.FrontEnd.Web
+namespace GSTT.Hack.Web.FrontEnd
 {
     public class RouteConfig
     {

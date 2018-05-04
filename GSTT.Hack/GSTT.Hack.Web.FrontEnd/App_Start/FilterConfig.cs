@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace GSTT.Hack.FrontEnd.Web
+namespace GSTT.Hack.Web.FrontEnd
 {
     public class FilterConfig
     {

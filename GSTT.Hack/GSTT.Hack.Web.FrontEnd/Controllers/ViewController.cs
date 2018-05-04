@@ -4,11 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace GSTT.Hack.FrontEnd.Web.Controllers
+namespace GSTT.Hack.Web.FrontEnd.Controllers
 {
-    public class ListController : Controller
+    [Authorize]
+    public class ViewController : Controller
     {
-        // GET: List
+        // GET: View
         public ActionResult Index()
         {
             return View();

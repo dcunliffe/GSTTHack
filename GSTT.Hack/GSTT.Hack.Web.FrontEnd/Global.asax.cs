@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace GSTT.Hack.FrontEnd.Web
+namespace GSTT.Hack.Web.FrontEnd
 {
     public class MvcApplication : System.Web.HttpApplication
     {
